@@ -1,8 +1,18 @@
 <?php
 
-include("db/connection.php");
-include("functions.php");
+require("db/connection.php"); //Requiere la base de datos, caso contrario da error fatal 
 
+include("includes/header.php"); 
+include("includes/nav.php"); 
+
+?>
+
+
+
+
+<?php
+
+include("includes/footer.php")
 
 /*
 $obj = new Conection();
@@ -16,7 +26,4 @@ $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
 dump_debug($data);
 */
-
-
-
 ?>
