@@ -18,7 +18,7 @@ Recursos que se ha usado para construir el proyecto.
 
 >***Primero asegurese de tener activa su base de datos y su Servidor para PHP***
 
-Luego, simplemente cambie los datos de las funciones [define](https://www.php.net/manual/es/function.define.php/ "Info define") ubicadas en el archivo _config.php_ segun lo requiera para conectarse con su base de datos.
+Luego, simplemente cambie los siguientes datos de las funciones [define](https://www.php.net/manual/es/function.define.php/ "Info define") ubicadas en el archivo _config.php_ segun lo requiera para conectarse con su base de datos.
 
 ```
     define('HOSTNAME', NULL); // Nombre del host, por defecto localhost 
@@ -31,13 +31,18 @@ Luego, simplemente cambie los datos de las funciones [define](https://www.php.ne
 
     define('PORT', NULL);  // Puerto
 
-    define('SOCKET', NULL);  // Socket, null por defecto
+    define('CHARSET', 'utf8'); // Encode de caracteres
 ```
 
 #### Creditos
 
-|HECHO POR|
-|Consantino Edes|
-|Damian Liboa|
-|Pablo Molina|
+| DESARROLLADORES |
+| ------ |
+| Constantino Edes |
+| Damian Liboa | 
+| Pablo Molina | 
+
+**"Esc. Superior Nº 49  "Cap. Gral. J.J. Urquiza" - 2021**
+
+
 
