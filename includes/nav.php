@@ -24,12 +24,12 @@
             Acerca de
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item text-light" href="#">FAQs</a></li>
-            <li><a class="dropdown-item text-light" href="#">Sobre nosotros</a></li>
+            <li><a class="dropdown-item text-dark" href="#">FAQs</a></li>
+            <li><a class="dropdown-item text-dark" href="#">Sobre nosotros</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item text-light" href="#">Contacto</a></li>
+            <li><a class="dropdown-item   text-dark" href="#">Contacto</a></li>
           </ul>
         </li> 
       </ul>

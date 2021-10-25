@@ -14,10 +14,10 @@ class Conection {
             );
 
             $db = new PDO("mysql:host=".HOSTNAME.";port=".PORT.";dbname=".DATABASE.';charset='. CHARSET, USERNAME, PASSWORD, $options);
-
             return $db;
         } 
         catch(Exception $e) {
+            $db = "Connection error";
             die("Database connection failed: " . $e->getMessage());
         }
     }

@@ -158,10 +158,9 @@
 
 <!-- BOOTSTRAP 5.1 JS -->
 <script src="../js/popper.min.js"></script>
-<script src="../js/popper.min.js"></script>
-
+<script src="../js//jquery-3.6.0.min.js"></script>
 <!-- BOOTSTRAP LIBRARIES -->
-<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap-5.1.0.min.js"></script>
 
 </body>
 </html>

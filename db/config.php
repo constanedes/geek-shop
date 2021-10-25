@@ -12,7 +12,7 @@
 
     define('PASSWORD','');
 
-    define('DATABASE','geek-shop'); // To be completed to connect to a database. The database must exist.
+    define('DATABASE','geek_shop'); // To be completed to connect to a database. The database must exist.
 
     define('PORT', 3308);  // Default must be NULL to use default port
 
