@@ -48,6 +48,25 @@ include("includes/nav.php");
     </table>
 </div>
 
+
+<form action="create.php" method="GET">
+   <input type="text" name="tipo">
+     <br>
+    <input type="text" name="marca">
+    <br>
+    <input type="text" name="modelo">
+    <br>
+    <input type="number" name="ars">
+    <br>
+    <input type="number" name="usd">
+    <br>
+    <input type="number" name="stock">
+    <br>
+    <input type="date" name="fingreso">
+    <br><br>
+    <input type="submit" value="enviar">
+</form>
+
 <?php
 
 include("includes/footer.php")
@@ -67,20 +86,3 @@ dump_debug($data);
 */
 ?>
 
-<form action="create.php" method="get">
-    <input type="text" name="tipo">
-    <br>
-    <input type="text" name="marca">
-    <br>
-    <input type="text" name="modelo">
-    <br>
-    <input type="number" name="ars">
-    <br>
-    <input type="number" name="usd">
-    <br>
-    <input type="number" name="stock">
-    <br>
-    <input type="date" name="fingreso">
-    <br><br>
-    <input type="submit" value="enviar">
-</form>
