@@ -12,7 +12,7 @@ class Conection {
                 PDO::ATTR_ORACLE_NULLS => PDO::NULL_EMPTY_STRING
             );
 
-            $db = new mysqli("mysql:host=".HOSTNAME.";port=".PORT.";dbname=".DATABASE.';charset='. CHARSET, USERNAME, PASSWORD, $options);
+            $db = new PDO("mysql:host=".HOSTNAME.";port=".PORT.";dbname=".DATABASE.';charset='. CHARSET, USERNAME, PASSWORD, $options);
             return $db;
         } 
         catch(Exception $e) {

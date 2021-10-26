@@ -4,85 +4,117 @@ require("db/connection.php"); //Requiere la base de datos, caso contrario da err
 include("includes/header.php"); 
 include("includes/nav.php"); 
 
+
+$db = new Conection(); 
+$db = $db->connect();
+
+$vista = "SELECT 
+                id,
+                tipo,
+                marca,
+                modelo,
+                precio_ars,
+                precio_usd,
+                stock,
+                fecha_ingreso
+                FROM
+                productos
+                ORDER BY id DESC
+                LIMIT 100;";
+
+
+$tabla = $db->prepare($vista);
+$tabla->execute();
 ?>
 
-<div class=" table-responsive ">
+<div class="table-responsive">
     <table class="table caption-top table-bordered table-hover">
-        <caption>List of users</caption>
-        <thead class=" table-primary">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th scope="row" class=" border-dark border-1 ">4</th>
-                <td class=" border-dark border-1 ">Larry</td>
-                <td class=" border-dark border-1 ">the Bird</td>
-                <td class=" border-dark border-1 ">@twitter</td>
-            </tr>
-        </tfoot>
+        <form action="create.php" method="GET">
+            <thead class="table-primary fs-5-5">
+                <tr>
+                    <?php
+                for($i = 0; $i < $tabla->columnCount(); $i++):
+                $infoCampo = $tabla->getColumnMeta($i);
+                echo "<th class=' text-capitalize text-center'>" . $infoCampo['name'] . "</th>";
+                endfor;
+                ?>
+                    <?= str_repeat("<th></th>", 2) ?>
+                </tr>
+            </thead>
+            <tbody class="fs-6-5">
+                <?php
+            while($fila = $tabla->fetch()):  
+                echo "<tr>";
+
+            for($j = 0; $j < $tabla->columnCount(); $j++):
+                echo "<td class=' text-capitalize text-center'>" . $fila[$j] . "</td>";  
+            endfor;
+
+            // cada link envia el ID del elemento correspondiente por GET
+            echo ('<td><a class="btn btn-outline-warning mx-auto d-block" href="update.php?id=' . $fila[0] . '">Editar</a></td>'   . 
+                '<td><a class="btn btn-outline-danger mx-auto d-block" href="delete.php?id=' . $fila[0] . '">Eliminar</a></td>' . 
+                '</tr>'); 
+            endwhile;
+            ?>
+            </tbody>
+            <tfoot class="">
+                <tr>
+                    <div>
+                        <td>
+                            <input class="form-control form-control" type='text' placeholder="Tipo" name='tipo' required maxlength="30" autofocus>
+                        </td>
+                        <td>
+                            <input class="form-control form-control" type='text' maxlength="40" placeholder="Marca" name='marca' required>
+                        </td>
+                        <td>
+                            <input class="form-control form-control" type='text' maxlength="50" name="modelo" placeholder="Modelo"
+                                required>
+                        </td>
+                        <td>
+                            <input class="form-control form-control" type='number' placeholder="$ARS" 
+                                name='ars' required>
+                        </td>
+                        <td>
+                            <input class="form-control form-control" type='number' name='usd' placeholder="$USD" required>
+                        </td>
+                        <td>
+                            <input class="form-control form-control" type='number' name='stock' placeholder="Stock" required>
+                        </td>
+                        <td>
+                            <input class="form-control form-control" type='date' name='fingreso' required>
+                        </td>
+                    </div>
+                    <?= str_repeat("<td></td>", 1) ?>
+                    <td>
+                        <input class="form-control form-control btn btn-primary" type='submit' name='insertar'
+                            value='INSERTAR'>
+                    </td>
+                </tr>
+            </tfoot>
+        </form>
     </table>
-</div>
-
-
-<form action="create.php" method="GET">
-   <input type="text" name="tipo">
-     <br>
-    <input type="text" name="marca">
-    <br>
-    <input type="text" name="modelo">
-    <br>
-    <input type="number" name="ars">
-    <br>
-    <input type="number" name="usd">
-    <br>
-    <input type="number" name="stock">
-    <br>
-    <input type="date" name="fingreso">
-    <br><br>
-    <input type="submit" value="enviar">
-</form>
+</div class="pb-5">
 
 <?php
-
 include("includes/footer.php")
 
 
-/*
-$obj = new Conection();
-$conn = $obj->connect();
 
-$sql = "SELECT * FROM task";
-$result = $conn->prepare($sql);
-
-$result->execute();
-$data = $result->fetchAll(PDO::FETCH_ASSOC);
-
-dump_debug($data);
-*/
+// if(isset($_POST['insertar'])){
+        
+//     $idUsuario = $_POST['id'];
+//     $nombreCompleto = $_POST['nya'];
+//     $direccion = $_POST['direccion'];
+//     $telefono = $_POST['telefono'];
+//     $fechaNacimiento = $_POST['fecha']; 
+     
+//     $insertar = mysqli_query($db, "INSERT INTO `clientes`(`id`, `nombre_apellido`, `domicilio`, `telefono`, `fecha_nacimiento`) VALUES ('$idUsuario','$nombreCompleto','$direccion','$telefono','$fechaNacimiento')");
+    
+//     if($insertar){
+//         header("Location: index.php");
+//     }
+//     else {
+//         echo "Error:" . $insertar . "<br>" . mysqli_error($db);
+//     }
+// }
 ?>
-
