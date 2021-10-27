@@ -62,8 +62,17 @@
 }
 
 .pt-xxl {
-    padding-top: 6rem;
+    padding-top: 15rem;
 }
+
+.pt-xxl-up {
+    padding-top: 4rem;
+}
+
+.mb-xxl-up {
+    padding-bottom: 8rem;
+}
+
 
 .fs-5-5{
     font-size: 1.02rem;

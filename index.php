@@ -5,6 +5,7 @@ include("includes/header.php");
 include("includes/nav.php"); 
 
 
+
 $db = new Conection(); 
 $db = $db->connect();
 
@@ -29,7 +30,7 @@ $tabla->execute();
 
 <div class="table-responsive">
     <table class="table caption-top table-bordered table-hover">
-        <form action="create.php" method="GET">
+        <form class="needs-validation" action="create.php" method="POST">
             <thead class="table-primary fs-5-5">
                 <tr>
                     <?php
@@ -60,31 +61,35 @@ $tabla->execute();
             <tfoot class="">
                 <tr>
                     <div>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td>
-                            <input class="form-control form-control" type='text' placeholder="Tipo" name='tipo' required maxlength="30" autofocus>
+                            <input class="form-control form-control" type='text' placeholder="Tipo" name='tipo' required
+                                maxlength="30" autofocus>
                         </td>
                         <td>
-                            <input class="form-control form-control" type='text' maxlength="40" placeholder="Marca" name='marca' required>
+                            <input class="form-control form-control" type='text' maxlength="40" placeholder="Marca"
+                                name='marca' required>
                         </td>
                         <td>
-                            <input class="form-control form-control" type='text' maxlength="50" name="modelo" placeholder="Modelo"
+                            <input class="form-control form-control" type='text' maxlength="50" name="modelo"
+                                placeholder="Modelo" required>
+                        </td>
+                        <td>
+                            <input class="form-control form-control" type='number' placeholder="$ARS" name='ars'
                                 required>
                         </td>
                         <td>
-                            <input class="form-control form-control" type='number' placeholder="$ARS" 
-                                name='ars' required>
+                            <input class="form-control form-control" type='number' name='usd' placeholder="$USD"
+                                required>
                         </td>
                         <td>
-                            <input class="form-control form-control" type='number' name='usd' placeholder="$USD" required>
-                        </td>
-                        <td>
-                            <input class="form-control form-control" type='number' name='stock' placeholder="Stock" required>
+                            <input class="form-control form-control" type='number' name='stock' placeholder="Stock"
+                                required>
                         </td>
                         <td>
                             <input class="form-control form-control" type='date' name='fingreso' required>
                         </td>
                     </div>
-                    <?= str_repeat("<td></td>", 1) ?>
                     <td>
                         <input class="form-control form-control btn btn-primary" type='submit' name='insertar'
                             value='INSERTAR'>
@@ -99,22 +104,4 @@ $tabla->execute();
 include("includes/footer.php")
 
 
-
-// if(isset($_POST['insertar'])){
-        
-//     $idUsuario = $_POST['id'];
-//     $nombreCompleto = $_POST['nya'];
-//     $direccion = $_POST['direccion'];
-//     $telefono = $_POST['telefono'];
-//     $fechaNacimiento = $_POST['fecha']; 
-     
-//     $insertar = mysqli_query($db, "INSERT INTO `clientes`(`id`, `nombre_apellido`, `domicilio`, `telefono`, `fecha_nacimiento`) VALUES ('$idUsuario','$nombreCompleto','$direccion','$telefono','$fechaNacimiento')");
-    
-//     if($insertar){
-//         header("Location: index.php");
-//     }
-//     else {
-//         echo "Error:" . $insertar . "<br>" . mysqli_error($db);
-//     }
-// }
 ?>
