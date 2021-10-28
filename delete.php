@@ -17,7 +17,7 @@ class Delete extends Conection {
         $validacion = $this->conn->prepare($idExiste);
         $validacion->execute();
         $nRows = $validacion->fetchColumn(); 
-        echo $nRows;
+        
 
 
         if($nRows >= 1){

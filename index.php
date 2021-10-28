@@ -100,8 +100,4 @@ $tabla->execute();
     </table>
 </div class="pb-5">
 
-<?php
-include("includes/footer.php")
-
-
-?>
+<?php include("includes/footer.php") ?>
